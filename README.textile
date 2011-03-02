@@ -1,0 +1,24 @@
+h1. XML writer class
+
+This class Extends XMLWriter (PHP5 only)
+You need tot have XMLWriter installed with PHP.
+
+This is a very easy to use XML writer library I developed to write XLM for communication with a Flash app. But it can be used to generate any well-formed XML document.
+
+It can be used to create any XML, not matter how deep. Every branche and node can have one or more attributes, if needed. Need CDATA? Just set a parameter to true. The library prints XML directly to screen, setting XML headers first, or it can return the XML as a string. Just place the library in applications/library and you’re good to go.
+
+Basically, you can add two types of data:
+* branches - you need to start a new branch and end it before adding the next branch
+* nodes - nodes are children to a branch. You do not have to start and end a node, just add it.
+
+h1. Installation
+
+To follow
+
+h2. manual
+
+To follow
+
+h1. Forum thread
+
+http://codeigniter.com/forums/viewthread/108264/
