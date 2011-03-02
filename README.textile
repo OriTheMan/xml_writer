@@ -1,7 +1,7 @@
 h1. XML writer class
 
-This class Extends XMLWriter (PHP5 only)
-You need tot have XMLWriter installed with PHP.
+Author: Joost van Veen
+"http://twitter.com/#!/joostvanveen":http://twitter.com/#!/joostvanveen
 
 This is a very easy to use XML writer library I developed to write XLM for communication with a Flash app. But it can be used to generate any well-formed XML document.
 
@@ -11,14 +11,34 @@ Basically, you can add two types of data:
 * branches - you need to start a new branch and end it before adding the next branch
 * nodes - nodes are children to a branch. You do not have to start and end a node, just add it.
 
+This class Extends XMLWriter (PHP5 only)
+You need tot have XMLWriter installed with PHP.
+"http://php.net/manual/en/book.xmlwriter.php":http://php.net/manual/en/book.xmlwriter.php
+Important: XMLWriter expects UTF-8 data from you. It can output xml in various encodings, but input should be strictly utf-8!
+
 h1. Installation
 
-To follow
+* Simply dump xml_writer.php into library folder.
 
-h2. manual
+h2. Manual
 
-To follow
+* Follow instructions in xml_writer.php
+* An example can be found in controllers/xml.php
+
+h1. Available methods
+
+These should be pretty self-explanatory. For more info, read docblocks.
+* setRootName ($rootName);
+* setXmlVersion ($version);
+* setCharSet ($charSet);
+* setIndentStr ($indentString);
+* setXsltFilePath ($xsltFilePath);
+* initiate ();
+* startBranch ($name, $attributes = array());
+* endBranch ();
+* addNode ($name, $value, $attributes = array(), $cdata = false);
+* getXml ($echo = false);
 
 h1. Forum thread
 
-http://codeigniter.com/forums/viewthread/108264/
+"http://codeigniter.com/forums/viewthread/108264/":http://codeigniter.com/forums/viewthread/108264/
