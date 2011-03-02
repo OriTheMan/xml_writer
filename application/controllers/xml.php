@@ -20,35 +20,50 @@ class Xml extends CI_Controller
         $xml->setRootName('my_store');
         $xml->initiate();
         
-        // Start branch 1
+        // Start branch 'cars'
         $xml->startBranch('cars');
         
-        // Set branch 1-1 and its nodes
-        $xml->startBranch('car', array('country' => 'usa')); // start branch 1-1
+        // Set children for branch 'cars'
+        $xml->startBranch('car', array('country' => 'usa'));
         $xml->addNode('make', 'Ford');
         $xml->addNode('model', 'T-Ford', array(), true);
         $xml->endBranch();
         
-        // Set branch 1-2 and its nodes
-        $xml->startBranch('car', array('country' => 'Japan')); // start branch
+        $xml->startBranch('car', array('country' => 'Japan'));
         $xml->addNode('make', 'Toyota');
         $xml->addNode('model', 'Corolla', array(), true);
         $xml->endBranch();
         
-        // End branch 1
+        // End branch 'cars'
         $xml->endBranch();
         
-        // Start branch 2
-        $xml->startBranch('bikes'); // start branch
+        // Start branch 'bikes'
+        $xml->startBranch('bikes');
         
-
-        // Set branch 2-1  and its nodes
-        $xml->startBranch('bike', array('country' => 'usa')); // start branch
+        // Set children for branch 'cars'
+        // Code is indented to clarify relations.
+        $xml->startBranch('bike', array('country' => 'usa'));
         $xml->addNode('make', 'Harley-Davidson');
         $xml->addNode('model', 'Soft tail', array(), true);
+            $xml->startBranch('parts');
+                $xml->startBranch('part', array('type' => 'exhaust'));
+                $xml->addNode('id', '2323-012');
+                $xml->endBranch();
+                $xml->startBranch('part', array('type' => 'exhaust'));
+                $xml->addNode('id', '2323-013');
+                $xml->endBranch();
+                $xml->startBranch('part', array('type' => 'carburator'));
+                $xml->addNode('id', '2541-016');
+                $xml->endBranch();
+            $xml->endBranch();
         $xml->endBranch();
         
-        // End branch 2
+        $xml->startBranch('bike', array('country' => 'japan'));
+        $xml->addNode('make', 'BMS');
+        $xml->addNode('model', 'R75', array(), true);
+        $xml->endBranch();
+        
+        // End branch 'bikes'
         $xml->endBranch();
         
         // Pass the XML to the view
